@@ -1,6 +1,6 @@
 if (Posts.find().count() === 0) {
 
-  var now = new Date.getTime();
+  var now = new Date().getTime();
 
   var tomId = Meteor.users.insert({
     profile: { name: 'Tom Coleman' }
