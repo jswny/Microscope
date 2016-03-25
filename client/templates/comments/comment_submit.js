@@ -23,13 +23,13 @@ Template.commentSubmit.events({
 
     var errors =  {};
     if (! comment.body) {
-      erros.body = 'Please write some content';
+      errors.body = 'Please write some content';
       return Session.set('commentSubmitErrors', errors);
     }
 
     Meteor.call('commentInsert', comment, function(error, commentId) {
       if (error) {
-        return throwError(error.reason);
+        throwError(error.reason);
       } else {
         $body.val('');
       }

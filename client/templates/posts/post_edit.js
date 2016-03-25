@@ -4,7 +4,7 @@ Template.postEdit.onCreated(function() {
 
 Template.postEdit.helpers({
   errorMessage: function(field) {
-    return Session.get('postEditErrors')[field]
+    return Session.get('postEditErrors')[field];
   },
   errorClass: function(field) {
     return !!Session.get('postEditErrors')[field] ? 'has-error' : '';
@@ -24,7 +24,7 @@ Template.postEdit.events({
 
     var errors =  validatePost(postProperties);
     if (errors.title || errors.url)
-      return Session.set('postSubmitErrors', errors);
+      return Session.set('postEditErrors', errors);
 
     Posts.update(currentPostId, {$set: postProperties}, function(error) {
       if (error) {
